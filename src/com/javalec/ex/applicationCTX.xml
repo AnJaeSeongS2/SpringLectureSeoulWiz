@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:p="http://www.springframework.org/schema/p" xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+    <context:annotation-config/>
+    <bean class = "com.javalec.ex.ApplicationConfig"/>
+
+
+    <bean id = "calculator" class = "com.javalec.ex.Calculator"/>
+
+
+
+    <bean id = "myCalculator" class ="com.javalec.ex.MyCalculator">
+        <property name="calculator" ref="calculator"/>
+        <property name="firstNum" value="10"/>
+        <property name="secondNum" value="2"/>
+        <property name="listName">
+            <list>
+                <value>An</value>
+                <value>Jae</value>
+                <value>Seong</value>
+            </list>
+        </property>
+
+    </bean>
+    <bean id ="myCalculator2" class = "com.javalec.ex.MyCalculator" c:calculator-ref="calculator" c:firstNum="10" c:secondNum="4" >
+        <constructor-arg>
+            <list>
+                <value>An</value>
+                <value>An2</value>
+                <value>An3</value>
+                <value>An4</value>
+            </list>
+        </constructor-arg>
+    </bean>
+
+
+    <bean id = "pencil" class = "com.javalec.ex.Pencil6B"></bean>
+
+</beans>
